@@ -13,7 +13,7 @@ node {
     }
     }
     stage('Push'){
-        docker.withRegistry('https://gitlab.com/') {
+        docker.withRegistry('https://gitlab.com/','gitlab') {
             img.push 'latest'
             img.push()
     }
