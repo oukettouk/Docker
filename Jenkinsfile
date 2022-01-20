@@ -1,5 +1,5 @@
 node {
-    def reg = 'gitlab.com/jenkinslab1/Docker/container_registry'
+    def reg = 'registry.gitlab.com/jenkinslab1/docker'
     stage('clone'){
     checkout scm
     }
