@@ -1,11 +1,10 @@
 node {
-    def RegistryProject='https://hub.docker.com/r/oukettouk/jenkins_lab1'
-    def IMAGE='${RegistryProject}:version-${env.BUILD_ID}'
+    def RegistryProject='hub.docker.com/r/oukettouk/jenkins_lab1'
     stage('clone'){
     checkout scm
     }
     def img = stage('Build'){
-    docker.build("$IMAGE", '.')
+    docker.build(khalil/nginxpush)
     }
     stage('Run'){
     img.withRun("--name run-$BUILD_ID -p 80:80") { c ->
@@ -14,7 +13,7 @@ node {
     }
     }
     stage('Push'){
-        docker.withRegistry('$RegistryProject') {
+        docker.withRegistry('https://hub.docker.com/r/oukettouk/jenkins_lab1') {
             img.push 'latest'
             img.push()
 }
