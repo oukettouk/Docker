@@ -1,5 +1,5 @@
 node {
-    def reg = 'hub.docker.com/r/oukettouk/jenkins_lab1'
+    def reg = 'gitlab.com/jenkinslab1/Docker/container_registry'
     stage('clone'){
     checkout scm
     }
@@ -13,7 +13,7 @@ node {
     }
     }
     stage('Push'){
-        docker.withRegistry('https://hub.docker.com/') {
+        docker.withRegistry('https://gitlab.com/') {
             img.push 'latest'
             img.push()
     }
