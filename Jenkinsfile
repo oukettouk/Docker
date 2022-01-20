@@ -1,5 +1,5 @@
 node {
-    define reg = 'hub.docker.com/r/oukettouk/jenkins_lab1
+    define reg = 'hub.docker.com/r/oukettouk/jenkins_lab1'
     stage('clone'){
     checkout scm
     }
