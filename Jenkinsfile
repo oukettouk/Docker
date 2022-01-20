@@ -13,7 +13,7 @@ node {
     }
     }
     stage('Push'){
-        docker.withRegistry('https://hub.docker.com/r/oukettouk/jenkins_lab1') {
+        docker.withRegistry('https://hub.docker.com/') {
             img.push 'latest'
             img.push()
     }
