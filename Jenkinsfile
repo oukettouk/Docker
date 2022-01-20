@@ -1,9 +1,10 @@
 node {
+    define reg = 'hub.docker.com/r/oukettouk/jenkins_lab1
     stage('clone'){
     checkout scm
     }
     def img = stage('Build'){
-    docker.build("khalil/nginxpush")
+    docker.build("$reg")
     }
     stage('Run'){
     img.withRun("--name run-$BUILD_ID -p 80:80") { c ->
